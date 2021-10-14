@@ -22,6 +22,6 @@
         }
     },
     "include": [
-        "src/**/*"
-    ]
+        "**/*"
+, "box.ts", "environment.ts", "server.ts"    ]
 }
