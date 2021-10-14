@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/',function(req,res) {
+app.get('/', (req,res) => {
     res.send("Nothing to see here... move along")
   });
 
