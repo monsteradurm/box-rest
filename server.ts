@@ -1,6 +1,9 @@
 import {BoxHelper} from './box';
 import express, { Request, Response, NextFunction } from 'express';
 
+const httpProxy = require('http-proxy');
+const proxy = httpProxy.createProxyServer({});
+
 const app = express();
 const port = 3000;
 const cors = require('cors');
