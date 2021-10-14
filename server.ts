@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 const cors = require('cors');
 
-proxy.on('error', function(e) {
+proxy.on('error', (e) => {
     console.log(e);
 });
 
