@@ -31,8 +31,8 @@ app.get('/sharefolder', (req, res) => {
     Helper.GetShareFolder(root, folder).then((result) => res.json(result));
 });
 
-app.listen(3000, () => {
-        console.log('box-rest --> listening at: 3000');
+app.listen(process.env.PORT, () => {
+        console.log('box-rest --> listening at:', process.env.PORT);
 });
 
 export {};
