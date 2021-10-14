@@ -12,6 +12,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/',function(req,res) {
+    res.send("Nothing to see here... move along")
+  });
+
 app.get('/sharefolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
