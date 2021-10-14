@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('box-rest/sharefolder', (req, res) => {
+app.get('/sharefolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
 
