@@ -6,6 +6,7 @@ const proxy = httpProxy.createProxyServer({});
 
 const app = express();
 const cors = require('cors');
+const router = express.Router();
 
 proxy.on('error', (e) => {
     console.log(e);
@@ -19,10 +20,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.send('Nothing to see here... move along');
-  });
+router.get('/', (req, res) => {
+    res.json({ message: 'hooray! welcome to our api!' });
+});
 
+app.use('/api', router);
+/*
 app.get('/sharefolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
@@ -30,6 +33,7 @@ app.get('/sharefolder', (req, res) => {
     const Helper = new BoxHelper();
     Helper.GetShareFolder(root, folder).then((result) => res.json(result));
 });
+*/
 
 app.listen(process.env.PORT, () => {
         console.log('box-rest --> listening at:', process.env.PORT);
