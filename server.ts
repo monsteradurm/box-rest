@@ -5,20 +5,19 @@ const httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer({});
 
 const app = express();
-const port = 3000;
 const cors = require('cors');
 
 proxy.on('error', (e) => {
     console.log(e);
 });
 
-/*
+
 app.options('*', cors());
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
-});*/
+});
 
 app.get('/', (req, res) => {
     res.send('Nothing to see here... move along');
@@ -32,8 +31,8 @@ app.get('/sharefolder', (req, res) => {
     Helper.GetShareFolder(root, folder).then((result) => res.json(result));
 });
 
-app.listen(port, () => {
-        console.log('box-rest --> listening at: ' + port);
+app.listen(3000, () => {
+        console.log('box-rest --> listening at: 3000');
 });
 
 export {};
