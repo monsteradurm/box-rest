@@ -5,6 +5,11 @@ const app = express();
 const port = 3000;
 const cors = require('cors');
 
+proxy.on('error', function(e) {
+    console.log(e);
+});
+
+
 app.options('*', cors());
 
 app.use((req, res, next) => {
