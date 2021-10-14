@@ -9,13 +9,13 @@ proxy.on('error', function(e) {
     console.log(e);
 });
 
-
+/*
 app.options('*', cors());
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
-});
+});*/
 
 app.get('/', (req, res) => {
     res.send('Nothing to see here... move along');
