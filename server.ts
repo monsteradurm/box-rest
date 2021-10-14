@@ -15,16 +15,20 @@ proxy.on('error', (e) => {
 
 app.options('*', cors());
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
-
 router.get('/', (req, res) => {
     res.json({ message: 'hooray! welcome to our api!' });
 });
+app.configure(() => {
+    app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        next();
+    });
+    app.use( express.bodyParser() );
+    app.use( express.methodOverride() );
+    app.use('/api', router);
+    app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
 
-app.use('/api', router);
 /*
 app.get('/sharefolder', (req, res) => {
     const folder = req.query.folder;
