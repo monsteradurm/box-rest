@@ -12,8 +12,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req,res) => {
-    res.send("Nothing to see here... move along")
+app.get('/', (req, res) => {
+    res.send('Nothing to see here... move along');
   });
 
 app.get('/sharefolder', (req, res) => {
