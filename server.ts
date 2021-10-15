@@ -9,26 +9,20 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const router = express.Router();
-
-
-router.get('/', (req, res) => {
-    res.json({ message: 'hooray! welcome to our api!' });
+app.get('/box-rest/', (req, res) => {
+    res.json({ message: 'Nothing to see here.. move along' });
 });
 
-app.use('/', router);
 
-/*
-app.get('/sharefolder', (req, res) => {
+app.get('/box-rest/sharefolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
-
     const Helper = new BoxHelper();
     Helper.GetShareFolder(root, folder).then((result) => res.json(result));
 });
-*/
 
-const server = app.listen(0, () => {
+
+const server = app.listen(() => {
     console.log('box-rest --> listening ', server.address().port);
 });
 export {};
