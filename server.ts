@@ -21,6 +21,13 @@ app.get('/box-rest/sharefolder', (req, res) => {
     Helper.GetShareFolder(root, folder).then((result) => res.json(result));
 });
 
+app.get('/box-rest/folderItems', (req, res) => {
+    const folder = req.query.folder;
+    const root = req.query.root;
+    const Helper = new BoxHelper();
+    Helper.GetFolderItems(root, folder).then((result) => res.json(result));
+});
+
 
 const server = app.listen(() => {
     console.log('box-rest --> listening ', server.address().port);

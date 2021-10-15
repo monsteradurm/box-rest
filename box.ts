@@ -22,6 +22,13 @@ export class BoxHelper {
 
     }
 
+    public async GetFolderItems(root: string, folder: string) {
+        const entry = await this.get_subfolder(root, folder);
+        if (!entry) { return null; }
+
+        return await this.get_folderItems(entry.id);
+    }
+
     public async get_subfolder(root: string, folder: string) {
         const folders = await this.get_folderItems(root);
 
@@ -47,7 +54,7 @@ export class BoxHelper {
         return shared;
     }
 
-    public async get_folderItems(parent) {
+    private async get_folderItems(parent) {
         return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type', offset: 0, limit: 1000});
     }
 
