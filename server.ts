@@ -28,8 +28,7 @@ app.get('/sharefolder', (req, res) => {
 });
 */
 
-app.listen(PORT, () => {
-        console.log('box-rest --> listening at:', PORT);
+const server = app.listen(0, () => {
+    console.log('box-rest --> listening ', server.address().port);
 });
-
 export {};
