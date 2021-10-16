@@ -23,17 +23,20 @@ app.get('/box-rest/sharefolder', (req, res) => {
     }
 });
 
-app.get('/box-rest/folderItems', (req, res) => {
+app.get('/box-rest/subfolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
     const Helper = new BoxHelper();
 
-    if (root && folder) {
-    Helper.GetSubFolderItems(root, folder).then((result) => res.json(result));
-    }
-    else if (root) {
-        Helper.GetFolderItems(root).then((result) => res.json(result));
-    }
+    Helper.GetSubFolder(root, folder).then((result) => res.json(result));
+
+});
+
+app.get('/box-rest/folderItems', (req, res) => {
+    const root = req.query.root;
+    const Helper = new BoxHelper();
+
+    Helper.GetFolderItems(root).then((result) => res.json(result));
 });
 
 

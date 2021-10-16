@@ -29,6 +29,16 @@ export class BoxHelper {
         return await this.GetFolderItems(entry.id);
     }
 
+    public async GetSubFolder(root: string, folder: string) {
+        const folders = await this.GetFolderItems(root);
+
+        if (!folders || !folders.entries) {
+            return null;
+        }
+
+        return  _.find(folders.entries, f => f.type == 'folder' && f.name.toLowerCase() == folder.toLowerCase());
+    }
+
     public async get_subfolder(root: string, folder: string) {
         const folders = await this.GetFolderItems(root);
 
