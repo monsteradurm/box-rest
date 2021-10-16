@@ -36,7 +36,9 @@ export class BoxHelper {
             return null;
         }
 
-        return  _.find(folders.entries, f => f.type == 'folder' && f.name.toLowerCase() == folder.toLowerCase());
+        const subfolder =  _.find(folders.entries, f => f.type == 'folder' && f.name.toLowerCase() == folder.toLowerCase());
+
+        return subfolder ? subfolder : null;
     }
 
     public async get_subfolder(root: string, folder: string) {
