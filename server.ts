@@ -29,7 +29,14 @@ app.get('/box-rest/subfolder', (req, res) => {
     const Helper = new BoxHelper();
 
     Helper.GetSubFolder(root, folder).then((result) => res.json(result));
+});
 
+app.get('/box-rest/thumbnail', (req, res) => {
+    const id = req.query.id;
+    const Helper = new BoxHelper();
+    return Helper.GetThumbnail(id).then((result) => {
+        res.json(result);
+    });
 });
 
 app.get('/box-rest/folderItems', (req, res) => {

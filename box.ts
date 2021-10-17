@@ -22,6 +22,10 @@ export class BoxHelper {
 
     }
 
+    public async GetThumbnail(id: string) {
+        return await this.Client.files.getThumbnail(id);
+    }
+
     public async GetSubFolderItems(root: string, folder: string) {
         const entry = await this.get_subfolder(root, folder);
         if (!entry) { return null; }
