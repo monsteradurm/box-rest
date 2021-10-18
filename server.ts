@@ -39,6 +39,14 @@ app.get('/box-rest/thumbnail', (req, res) => {
     });
 });
 
+app.post('/box-rest/thumbnails', (req, res) => {
+    const ids = req.body.ids;
+    const Helper = new BoxHelper();
+    return Helper.GetThumbnails(ids).then((result) => {
+        res.json(result);
+    });
+});
+
 app.get('/box-rest/folderItems', (req, res) => {
     const root = req.query.root;
     const Helper = new BoxHelper();
