@@ -27,9 +27,9 @@ export class BoxHelper {
     }
 
     public async GetThumbnails(ids: string[]) {
-        const result = [];
+        const result = {};
         for (const id of ids) {
-            result.push(await this.Client.files.getThumbnail(id));
+            result[id] = await this.Client.files.getThumbnail(id);
         }
 
         return result;
