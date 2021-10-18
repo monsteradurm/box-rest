@@ -40,7 +40,8 @@ app.get('/box-rest/thumbnail', (req, res) => {
 });
 
 app.post('/box-rest/thumbnails', (req, res) => {
-    const ids = req.body.ids;
+    const ids = req.body;
+    console.log('BODY', req.body);
     const Helper = new BoxHelper();
     return Helper.GetThumbnails(ids).then((result) => {
         res.json(result);
