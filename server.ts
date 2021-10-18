@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.options('*', cors());
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 app.get('/box-rest/', (req, res) => {
     res.json({ message: 'Nothing to see here.. move along' });
