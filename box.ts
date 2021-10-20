@@ -35,6 +35,19 @@ export class BoxHelper {
         return result;
     }
 
+    public async GetFileSharedLink(id: string) {
+        const shared = await this.Client.files.update(id, {
+            shared_link: {
+                access: 'open',
+                permissions: {
+                can_download: true
+                }
+            }
+        });
+
+        return shared;
+    }
+
     public async GetSubFolderItems(root: string, folder: string) {
         const entry = await this.get_subfolder(root, folder);
         if (!entry) { return null; }

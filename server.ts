@@ -29,6 +29,14 @@ app.get('/box-rest/sharefolder', (req, res) => {
     }
 });
 
+app.get('/box-rest/sharedfile', (req, res) => {
+    const id = req.query.id;
+    const Helper = new BoxHelper();
+    if (id) {
+        Helper.GetFileSharedLink(id).then((result) => res.json(result));
+    }
+});
+
 app.get('/box-rest/subfolder', (req, res) => {
     const folder = req.query.folder;
     const root = req.query.root;
