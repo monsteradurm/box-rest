@@ -69,6 +69,13 @@ app.get('/box-rest/folderItems', (req, res) => {
     Helper.GetFolderItems(root).then((result) => res.json(result));
 });
 
+app.get('/box-rest/folderInfo', (req, res) => {
+    const root = req.query.id;
+    const Helper = new BoxHelper();
+
+    Helper.GetFolderInfo(root).then((result) => res.json(result));
+});
+
 
 const server = app.listen(() => {
     console.log('box-rest --> listening ', server.address().port);

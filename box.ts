@@ -92,6 +92,10 @@ export class BoxHelper {
         return shared;
     }
 
+    public async GetFolderInfo(id) {
+        return await this.Client.folders.get(id, { fields: 'name,shared_link,type,path_collection' });
+    }
+
     public async GetFolderItems(parent) {
         return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type,path_collection', offset: 0, limit: 1000});
     }
