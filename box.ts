@@ -80,7 +80,7 @@ export class BoxHelper {
     }
 
     public async GetFolderItems(parent) {
-        return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type, path_collection', offset: 0, limit: 1000});
+        return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type,path_collection', offset: 0, limit: 1000});
     }
 
     public async get_webhook(id) {
