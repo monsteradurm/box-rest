@@ -80,11 +80,12 @@ export class BoxHelper {
             return result;
         }
 
+        console.log('Attempting to Update Folder: ', result);
         const shared = await this.Client.folders.update(result.id, {
             shared_link: {
                 access: 'open',
                 permissions: {
-                can_download: true
+                    can_download: true
                 }
             }
         });
