@@ -38,6 +38,7 @@ app.get('/box-rest/sharedfile', (req, res) => {
 });
 
 app.get('/box-rest/subfolder', (req, res) => {
+    console.log('Subfolder');
     const folder = req.query.folder;
     const root = req.query.root;
     const Helper = new BoxHelper();
