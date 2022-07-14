@@ -74,7 +74,10 @@ app.get('/box-rest/folderInfo', (req, res) => {
     const root = req.query.id;
     const Helper = new BoxHelper();
 
-    Helper.GetFolderInfo(root).then((result) => res.json(result));
+    Helper.GetFolderInfo(root).then((result) => {
+        console.log('HERE', result);
+        res.json(result);
+    });
 });
 
 

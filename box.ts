@@ -97,14 +97,14 @@ export class BoxHelper {
 
     public async GetFolderInfo(id) {
         console.log('Getting Folder Info: ' + id);
-        const result = await this.Client.folders.get(id, { fields: 'name,shared_link,type,path_collection,item_collection' });
+        const result = await this.Client.folders.get(id, { fields: 'name,shared_link,type,path_collection' });
         console.log(result);
         return result;
     }
 
     public async GetFolderItems(parent) {
         console.log('Getting Folder Items ' + parent);
-        return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type,path_collection', offset: 0, limit: 1000});
+        return await this.Client.folders.getItems(parent, { fields: 'name,shared_link,type,path_collection,tags', offset: 0, limit: 1000});
     }
 
     public async get_webhook(id) {
